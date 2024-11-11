@@ -61,6 +61,6 @@ public class Main {
         }
         System.out.println("Выход из цикла");
 
-
+//new information
     }
 }
