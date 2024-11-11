@@ -17,13 +17,21 @@ public class ManagerTacks {
         "".toLowerCase();
     }
     public void showTasks(String status){
-        System.out.println("Вывод всех задач");
         int id = 0;
-        for (Task i : tasks){
-            if (i.status.equals(status))
-                System.out.println(id +" - "+i.description);
-            id++;
+        if (status.equals("done") || status.equals("todo")||status.equals("in-progress")){
+            for (Task i : tasks){
+                if (i.status.equals(status))
+                    System.out.println(id +" - "+i.description);
+                id++;
+            }
+        } else {
+            for (Task i : tasks){
+
+                    System.out.println(id +" - "+i.description);
+                id++;
+            }
         }
+
     }
     public int findTaskID(String name){
         int id =0;

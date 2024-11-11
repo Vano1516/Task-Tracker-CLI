@@ -1,13 +1,18 @@
 import java.util.Scanner;
 
+import netscape.javascript.JSObject;
+import org.json.*;
+import org.json.simple.JSONObject;
+
+import static javax.swing.UIManager.put;
+
 public class Main {
     public static void main(String[] args) {
+  
         ManagerTacks tasks = new ManagerTacks();
-        int choise = -1;
         Scanner in = new Scanner(System.in);
         String input = "";
         while (!input.equals("exit")){
-            System.out.println("");
 
             input = in.next();
 
@@ -27,8 +32,9 @@ public class Main {
                     tasks.updateTask(id,description);
                     System.out.println("Task is updated");
                     break;
-                case "list":
+                case "list": // нужно сделать вывод всех задач по одному слову list
                     String mark = in.next();
+                    System.out.println(mark);
                     switch (mark){
                         case "done":
                             tasks.showTasks("done");
@@ -39,6 +45,12 @@ public class Main {
                             break;
                         case "in-progress":
                             tasks.showTasks("in-progress");
+                            break;
+                        case "":
+                            tasks.showTasks("");
+                            break;
+                        default:
+                            tasks.showTasks("");
                             break;
                     }
 
@@ -61,6 +73,5 @@ public class Main {
         }
         System.out.println("Выход из цикла");
 
-//new information
     }
 }
