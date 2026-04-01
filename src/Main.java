@@ -9,7 +9,7 @@ import static javax.swing.UIManager.put;
 public class Main {
     public static void main(String[] args) {
   
-        ManagerTacks tasks = new ManagerTacks();
+        ManagerTacks tasks = new ManagerTacks(); // test
         Scanner in = new Scanner(System.in);
         String input = "";
         while (!input.equals("exit")){
