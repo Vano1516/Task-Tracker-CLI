@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.List; // test
+import java.util.List; 
 
 public class ManagerTacks {
     List<Task> tasks = new ArrayList<>();
