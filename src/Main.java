@@ -1,77 +1,49 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
-import netscape.javascript.JSObject;
-import org.json.*;
-import org.json.simple.JSONObject;
+public class ManagerTacks { // test
+    List<Task> tasks = new ArrayList<>();
+    public void addTask(String Description){
+        Task task = new Task(Description);
+        task.status = "todo";
+        tasks.add(task);
+    }
+    public void deleteTask(int id){
+        tasks.remove(id);
+    }
+    public void updateTask(int id, String newDescription){
+        Task task = new Task(newDescription);
+        tasks.get(id).description = newDescription;
+        "".toLowerCase();
+    }
+    public void showTasks(String status){
+        int id = 0;
+        if (status.equals("done") || status.equals("todo")||status.equals("in-progress")){
+            for (Task i : tasks){
+                if (i.status.equals(status))
+                    System.out.println(id +" - "+i.description);
+                id++;
+            }
+        } else {
+            for (Task i : tasks){
 
-import static javax.swing.UIManager.put;
-
-public class Main {
-    public static void main(String[] args) {
-  
-        ManagerTacks tasks = new ManagerTacks(); // test
-        Scanner in = new Scanner(System.in);
-        String input = "";
-        while (!input.equals("exit")){
-
-            input = in.next();
-
-            switch (input){
-                case "add":
-                    String inputFull = in.next();
-                    tasks.addTask(inputFull);
-                    System.out.println("Task added successfully ID:"+ tasks.findTaskID(inputFull) );
-                    break;
-
-                case "delete":
-                    tasks.deleteTask(Integer.parseInt(in.next()));
-                    break;
-                case "update":
-                    int id = Integer.parseInt(in.next());
-                    String description = in.next();
-                    tasks.updateTask(id,description);
-                    System.out.println("Task is updated");
-                    break;
-                case "list": // нужно сделать вывод всех задач по одному слову list
-                    String mark = in.next();
-                    System.out.println(mark);
-                    switch (mark){
-                        case "done":
-                            tasks.showTasks("done");
-
-                            break;
-                        case "todo":
-                            tasks.showTasks("todo");
-                            break;
-                        case "in-progress":
-                            tasks.showTasks("in-progress");
-                            break;
-                        case "":
-                            tasks.showTasks("");
-                            break;
-                        default:
-                            tasks.showTasks("");
-                            break;
-                    }
-
-                    break;
-                case "mark-in-progress":
-
-                    tasks.changeStatus("mark-in-progress", Integer.parseInt(in.next()));
-                    System.out.println("Status is changed");
-                    break;
-                case "mark-done":
-                    tasks.changeStatus("mark-done", Integer.parseInt(in.next()));
-                    System.out.println("Status is changed");
-                    break;
-
-                default:
-                    System.out.println("неверно введенная команда");
-
-
+                    System.out.println(id +" - "+i.description);
+                id++;
             }
         }
-        System.out.println("Выход из цикла");
 
+    }
+    public int findTaskID(String name){
+        int id =0;
+        for (Task i : tasks){
+            if (i.description.equals(name)){
+                return id ;
+            }
+            id++;
+        }
+        return -1;
+    }
+    public void changeStatus(String status, int id){
+        tasks.get(id).status = status;
     }
 }
