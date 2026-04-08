@@ -1,4 +1,4 @@
-import java.util.ArrayList; // manager2
+import java.util.ArrayList; // main2
 import java.util.List;
 
 public class ManagerTacks {
