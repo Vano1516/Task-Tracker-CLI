@@ -1,6 +1,6 @@
 import java.util.Scanner; // main1
 
-import netscape.javascript.JSObject; // test
+import netscape.javascript.JSObject; 
 import org.json.*;
 import org.json.simple.JSONObject;
 
