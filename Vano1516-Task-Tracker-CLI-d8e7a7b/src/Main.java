@@ -1,4 +1,4 @@
-import java.util.Scanner; // test
+import java.util.Scanner; 
 
 import netscape.javascript.JSObject;
 import org.json.*;
