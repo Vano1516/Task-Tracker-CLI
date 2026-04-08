@@ -1,7 +1,7 @@
-import java.util.ArrayList;
+import java.util.ArrayList; // manager2
 import java.util.List;
 
-public class ManagerTacks { // test
+public class ManagerTacks {
     List<Task> tasks = new ArrayList<>();
     public void addTask(String Description){
         Task task = new Task(Description);
